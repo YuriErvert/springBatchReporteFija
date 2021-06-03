@@ -1,0 +1,16 @@
+---
+applications:
+  - name: TRAZABILIDAD-REENVIO-JOB
+    routes:
+      - route: trazabilidad-reenvio-job.mybluemix.net
+    memory: 1GB
+    instances: 1
+    path: springBatchReporteFija-0.0.1-SNAPSHOT.jar
+    buildpacks:
+      - liberty-for-java
+    health-check-type: process
+    disk_quota: 1GB
+    env:      
+      TDP_FIJA_DB_URL: ((dbfija.url))
+      TDP_FIJA_DB_PW: ((dbfija.password))
+      TDP_FIJA_DB_USR: ((dbfija.user))
